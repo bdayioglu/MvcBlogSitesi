@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MvcBlogSitesi.Models.Makale>
+
+@{
+    ViewBag.Title = "BlogAra";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>BlogAra</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Kategori.KategoriAdı)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MakaleBaşlık)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Makaleİçerik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MakaleFoto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MakaleTarih)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kategori.KategoriAdı)
+            </td>
+            <td>
+                <a href="/Home/MakaleDetay/@item.MakaleNo">@Html.DisplayFor(modelItem => item.MakaleBaşlık)</a>
+            </td>
+            <td>
+                <a href="/Home/MakaleDetay/@item.MakaleNo">@Html.DisplayFor(modelItem => item.Makaleİçerik)</a>
+            </td>
+            <td>
+                <img src="@item.MakaleFoto" width="100px" alt="@item.MakaleBaşlık" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MakaleTarih)
+            </td>
+        </tr>
+    }
+
+</table>

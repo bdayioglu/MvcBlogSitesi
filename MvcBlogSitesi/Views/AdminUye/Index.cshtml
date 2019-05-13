@@ -1,0 +1,70 @@
+﻿@model IEnumerable<MvcBlogSitesi.Models.Üye>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Üyeler</h2>
+
+<p>
+    @Html.ActionLink("Yeni Üye", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Yetki.YetkiAdı)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KullanıcıAdı)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Şifre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdSoyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ÜyeFoto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Yetki.YetkiAdı)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.KullanıcıAdı)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Şifre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AdSoyad)
+    </td>
+    <td>
+        <img src="@item.ÜyeFoto" width="100px" />
+    </td>
+    <td>
+    <td class="btn btn-success">
+        @Html.ActionLink("Düzenle", "Edit", new { id = item.ÜyeNo })
+    </td> |
+    <td class="btn btn-secondary">
+        @Html.ActionLink("Detay", "Details", new { id = item.ÜyeNo })
+    </td> |
+    <td class="btn btn-danger">
+        @Html.ActionLink("Sil", "Delete", new { id = item.ÜyeNo })
+    </td> |
+    </td>
+</tr>
+}
+
+</table>

@@ -1,0 +1,81 @@
+﻿@model MvcBlogSitesi.Models.Makale
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Sil</h2>
+
+<h3>Bu Makaleyi Yayından Kaldırmak İstiyor Musunuz ?</h3>
+<div>
+    <h4>Makale</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Kategori.KategoriAdı)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kategori.KategoriAdı)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Üye.KullanıcıAdı)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Üye.KullanıcıAdı)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MakaleBaşlık)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MakaleBaşlık)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Makaleİçerik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Makaleİçerik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MakaleFoto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MakaleFoto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MakaleTarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MakaleTarih)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MakaleOkunma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MakaleOkunma)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Geri Dön", "Index")
+        </div>
+    }
+</div>

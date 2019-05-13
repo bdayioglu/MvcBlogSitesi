@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MvcBlogSitesi.Models.Yorum>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Makale Yorumları</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Makale.MakaleBaşlık)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Üye.KullanıcıAdı)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Yorumİçerik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YorumTarih)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Makale.MakaleBaşlık)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Üye.KullanıcıAdı)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Yorumİçerik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YorumTarih)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.YorumNo }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.YorumNo }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.YorumNo })
+        </td>
+    </tr>
+}
+
+</table>

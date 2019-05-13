@@ -1,0 +1,87 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<MvcBlogSitesi.Models.Makale>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Makaleler</h2>
+
+<p>
+    @Html.ActionLink("Yeni Makale", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.Label("KategoriAdı")
+        </th>
+        <th>
+            @Html.Label("KullanıcıAdı")
+        </th>
+        <th>
+            @Html.Label("MakaleBaşlık")
+        </th>
+        <th>
+            @Html.Label("Makaleİçerik")
+        </th>
+        <th>
+            @Html.Label("MakaleFoto")
+        </th>
+        <th>
+            @Html.Label("MakaleTarih")
+        </th>
+        <th>
+            @Html.Label("MakaleOkunma")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Kategori.KategoriAdı)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Üye.KullanıcıAdı)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MakaleBaşlık)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Makaleİçerik)
+    </td>
+    <td>
+        <img width="100px" src="@item.MakaleFoto" />
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MakaleTarih)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MakaleOkunma)
+    </td>
+    <td>
+    <td class="btn btn-success">
+        @Html.ActionLink("Düzenle", "Edit", new { id = item.MakaleNo }) |
+    </td>
+    <td class="btn btn-secondary">
+        @Html.ActionLink("Detay", "Details", new { id = item.MakaleNo }) |
+    </td>
+    <td class="btn btn-danger">
+        @Html.ActionLink("Sil", "Delete", new { id = item.MakaleNo }) |
+    </td>
+
+    </td>
+</tr>
+    }
+
+</table>
+<div class="row" style="margin-left:45%">
+    <ul class="pagination">
+        <li class="page-item">
+            @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }), PagedListRenderOptions.Classic)
+        </li>
+    </ul>
+</div>

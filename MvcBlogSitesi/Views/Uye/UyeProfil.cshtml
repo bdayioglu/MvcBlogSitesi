@@ -1,0 +1,63 @@
+﻿@model MvcBlogSitesi.Models.Üye
+
+@{
+    ViewBag.Title = "UyeProfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UyeProfil</h2>
+
+<div>
+    <h4>Üye</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Yetki.YetkiAdı)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yetki.YetkiAdı)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KullanıcıAdı)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KullanıcıAdı)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdSoyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdSoyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ÜyeFoto)
+        </dt>
+
+        <dd>
+            <img src="@Model.ÜyeFoto" width="75px" height="100px" alt="@Model.AdSoyad"/>
+        </dd>
+
+    </dl>
+    <h4>Son Eklediği Makaleler</h4>
+    <div class="col-md-8 ">
+        @foreach (var item in Model.Makales.OrderByDescending(m => m.MakaleNo).Take(5))
+        {
+            <li><a href="/Home/MakaleDetay/@item.MakaleNo">@item.MakaleBaşlık</a></li>
+        }
+
+    </div>
+</div>

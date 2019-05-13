@@ -1,0 +1,51 @@
+﻿@model MvcBlogSitesi.Models.Yorum
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Yorum</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Makale.MakaleBaşlık)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Makale.MakaleBaşlık)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Üye.KullanıcıAdı)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Üye.KullanıcıAdı)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Yorumİçerik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yorumİçerik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YorumTarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YorumTarih)
+        </dd>
+
+    </dl>
+</div>
+<p class="btn btn-success">
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.YorumNo }) |
+    @Html.ActionLink("Geri Dön", "Index")
+</p>
