@@ -40,34 +40,34 @@
 
     @foreach (var item in Model)
     {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Kategori.KategoriAdı)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Üye.KullanıcıAdı)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.MakaleBaşlık)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Makaleİçerik)
-    </td>
-    <td>
-        <img width="100px" src="@item.MakaleFoto" />
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.MakaleTarih)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.MakaleOkunma)
-    </td>
-    <td>
-        @Html.ActionLink("Düzenle", "Edit", new { id = item.MakaleNo }) |
-        @Html.ActionLink("Detay", "Details", new { id = item.MakaleNo }) |
-        @Html.ActionLink("Sil", "Delete", new { id = item.MakaleNo }) |
-    </td>
-</tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kategori.KategoriAdı)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Üye.KullanıcıAdı)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MakaleBaşlık)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Makaleİçerik)
+            </td>
+            <td>
+                <img width="100px" src="@item.MakaleFoto" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MakaleTarih)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MakaleOkunma)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.MakaleNo }) |
+                @Html.ActionLink("Detay", "Details", new { id = item.MakaleNo }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.MakaleNo }) |
+            </td>
+        </tr>
     }
 
 </table>

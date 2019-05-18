@@ -18,17 +18,18 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.KategoriAdı)
-    </td>
-    <td>
-        @Html.ActionLink("Düzenle", "Edit", new { id = item.KategoriNo }) |
-        @Html.ActionLink("Detay", "Details", new { id = item.KategoriNo }) |
-        @Html.ActionLink("Sil", "Delete", new { id = item.KategoriNo }) |
-    </td>
-</tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KategoriAdı)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.KategoriNo }) |
+                @Html.ActionLink("Detay", "Details", new { id = item.KategoriNo }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.KategoriNo }) |
+            </td>
+        </tr>
+    }
 
 </table>

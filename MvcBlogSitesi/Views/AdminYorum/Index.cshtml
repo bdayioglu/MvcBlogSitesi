@@ -23,26 +23,27 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Makale.MakaleBaşlık)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Üye.KullanıcıAdı)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Yorumİçerik)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.YorumTarih)
-        </td>
-        <td>
-            @Html.ActionLink("Düzenle", "Edit", new { id=item.YorumNo }) |
-            @Html.ActionLink("Detay", "Details", new { id=item.YorumNo }) |
-            @Html.ActionLink("Sil", "Delete", new { id=item.YorumNo })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Makale.MakaleBaşlık)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Üye.KullanıcıAdı)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yorumİçerik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YorumTarih)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.YorumNo }) |
+                @Html.ActionLink("Detay", "Details", new { id = item.YorumNo }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.YorumNo })
+            </td>
+        </tr>
+    }
 
 </table>
