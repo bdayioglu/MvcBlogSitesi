@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<br />
 <h2>BlogAra</h2>
 <table class="table">
     <tr>
@@ -36,7 +37,10 @@
                 <a href="/Home/MakaleDetay/@item.MakaleNo">@Html.DisplayFor(modelItem => item.MakaleBaşlık)</a>
             </td>
             <td>
-                <a href="/Home/MakaleDetay/@item.MakaleNo">@Html.DisplayFor(modelItem => item.Makaleİçerik)</a>
+                @if (item.Makaleİçerik.Length > 250)
+                {
+                    @Html.Raw(item.Makaleİçerik.Substring(0, 350))
+                }
             </td>
             <td>
                 <img src="@item.MakaleFoto" width="100px" alt="@item.MakaleBaşlık" />
